@@ -9,19 +9,27 @@
   </head>
 
   <body>
-    <form name="FormContacto" id="FormContacto" onsubmit="return validar();" method="get" action="formContactoEnviado.html">
+    <!-- Cumple literal (a): onsubmit llama a validar() -->
+    <form name="FormContacto" id="FormContacto"
+          onsubmit="return validar();"
+          method="get"
+          action="formContactoEnviado.html">
+
       <h2>Contacto</h2>
 
       <p>Correo Electrónico</p>
-      <input type="text" id="txtEmail" name="txtEmail" placeholder="&#9993; usuario@mail.com" required>
+      <input type="text" id="txtEmail" name="txtEmail"
+             placeholder="&#9993; usuario@mail.com" required>
 
       <p>Fecha de Nacimiento</p>
-      <input type="date" name="txtFecha">
+      <input type="date" id="txtFecha" name="txtFecha">
 
       <p>Teléfono</p>
-      <input type="text" id="txtTelefono" name="txtTelefono" placeholder="&#9742; Teléfono" required>
+      <input type="text" id="txtTelefono" name="txtTelefono"
+             placeholder="&#9742; Teléfono" required>
 
-      <input type="submit" id="btnEnviar" value="Enviar">
+      <input type="button" id="btnEnviar" value="Enviar"
+             onclick="enviar(this)">
     </form>
   </body>
 </html>

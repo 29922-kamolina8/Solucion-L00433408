@@ -13,16 +13,21 @@ function validar() {
     return false;
   }
 
-  return true; 
+  return true;
 }
 
-
-
 function enviar(btn) {
-  if (!validar()) return;                 // no enviar si falla
-  btn.disabled = true;                    // deshabilitar
-  btn.value = "Enviando datos...";        // cambiar mensaje
-  btn.form.action = "formContactoEnviado.html"; // ir a la interfaz “enviado”
-  btn.form.method = "post";
-  btn.form.submit();                      // enviar con this.form.submit()
+  // valida ANTES de enviar (submit() NO dispara onsubmit)
+  if (!validar()) return;
+
+  // deshabilitar y cambiar texto
+  btn.disabled = true;
+  btn.value = "Enviando datos...";
+
+  // aseguramos que vaya a la pantalla de “enviado” con GET (sin 405)
+  btn.form.action = "formContactoEnviado.html";
+  btn.form.method = "get";
+
+  // enviar el formulario (como pide el enunciado)
+  btn.form.submit();
 }
