@@ -45,3 +45,17 @@ $(document).ready(function(){
 
 });
 
+$(document).ready(function() {
+        // Cuando el usuario haga clic en "Registrarse"
+        $("#registrarse form").on("submit", function(e) {
+            e.preventDefault();
+
+            // Mostrar la pestaña de "Iniciar Sesión"
+            $(".tab-segunda").addClass("active");
+            $(".tab-primera").removeClass("active");
+
+            $("#iniciar-sesion").fadeIn(600);
+            $("#registrarse").hide();
+        });
+});
+
