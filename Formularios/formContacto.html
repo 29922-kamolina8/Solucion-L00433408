@@ -4,13 +4,12 @@
     <meta charset="utf-8">
     <title>Contacto</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="stylesheet" href="../Recursos/MisEstilos.css">
     <script src="../js/contacto.js" defer></script>
   </head>
 
   <body>
-    <form name="FormContacto" onsubmit="return validar();">
+    <form name="FormContacto" id="FormContacto" onsubmit="return validar();" method="get" action="formContactoEnviado.html">
       <h2>Contacto</h2>
 
       <p>Correo Electrónico</p>
@@ -22,7 +21,7 @@
       <p>Teléfono</p>
       <input type="text" id="txtTelefono" name="txtTelefono" placeholder="&#9742; Teléfono" required>
 
-      <input type="button" id="btnEnviar" value="Enviar" onclick="enviar(this)">
+      <input type="submit" id="btnEnviar" value="Enviar">
     </form>
   </body>
 </html>
