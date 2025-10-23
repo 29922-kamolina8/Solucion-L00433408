@@ -1,46 +1,39 @@
-$(document).ready(function(){
-    $(".contenedor-formularios").find("input, textarea").on("keyup blur focus", function (e) {
-        var $this = $(this),
-            label = $this.prev("label");
+$(function () {
+  // —— Tabs: cambiar entre Iniciar Sesión / Registrarse ——
+  $('#tabs .tab a').on('click', function (e) {
+    e.preventDefault();
+    const hash = $(this).attr('href'); // #iniciar-sesion o #registrarse
 
-        if (e.type === "keyup") {
-            if ($this.val() === "") {
-                label.removeClass("active highlight");
-            } else {
-                label.addClass("active highlight");
-            }
-        } else if (e.type === "blur") {
-            if ($this.val() === "") {
-                label.removeClass("active highlight");
-            } else {
-                label.removeClass("highlight");
-            }
-        } else if (e.type === "focus") {
-            if ($this.val() === "") {
-                label.removeClass("highlight");
-            } else if ($this.val() !== "") {
-                label.addClass("highlight");
-            }
-        }
-    });
+    // activar pestaña
+    $(this).parent().addClass('active').siblings().removeClass('active');
+    // activar vista
+    $('.contenido-tab > div').removeClass('activo').hide();
+    $(hash).addClass('activo').fadeIn(300);
+  });
 
-    $(".tab a").on("click", function (e) {
-        e.preventDefault();
+  // Mostrar por defecto el login
+  $('#iniciar-sesion').addClass('activo').show();
 
-        $(this).parent().addClass("active");
-        $(this).parent().siblings().removeClass("active");
+  // —— Registro: usar submit para que required funcione ——
+  $('#FormRegistro').on('submit', function (e) {
+    e.preventDefault();
+    const form = this;
 
-        target = $(this).attr("href");
+    if (!form.checkValidity()) {
+      form.reportValidity(); // marca campos obligatorios
+      return;
+    }
 
-        $(".contenido-tab > div").not(target).hide();
-        $(target).fadeIn(600);
-    });
+    alert('¡Registro exitoso! Ahora inicia sesión.');
 
-    $("#btnRegistrarse").on("click", function () {
-        // Cambiar a pestaña "Iniciar Sesión"
-        $(".tab-segunda").addClass("active");
-        $(".tab-primera").removeClass("active");
-        $("#iniciar-sesion").fadeIn(600);
-        $("#registrarse").hide();
-    });
+    // Cambiar a pestaña "Iniciar Sesión"
+    $('.tab-segunda').addClass('active').siblings().removeClass('active');
+    $('.contenido-tab > div').removeClass('activo').hide();
+    $('#iniciar-sesion').addClass('activo').fadeIn(300);
+  });
+
+  // (Opcional) si tu botón tiene id="btnRegistrarse", dispara el submit:
+  $('#btnRegistrarse').on('click', function () {
+    $('#FormRegistro').trigger('submit');
+  });
 });

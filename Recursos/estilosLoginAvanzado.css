@@ -210,3 +210,21 @@ input:focus {
     width: 100%;
   }
 }
+
+
+/* ——— Parche: label NO flotante (evita superposición con placeholder) ——— */
+.contenedor-input label{
+  position: static !important;
+  transform: none !important;
+  left: auto !important;
+  display: block;
+  margin-bottom: 6px;
+  font-size: 16px;          /* más pequeño que el texto del input */
+  color: rgba(255,255,255,.85);
+}
+
+/* Input normal con placeholder visible y sin superposición */
+.contenedor-input input::placeholder{ opacity:.65; }
+
+.contenido-tab > div{ display:none; }
+.contenido-tab > div.activo{ display:block; }

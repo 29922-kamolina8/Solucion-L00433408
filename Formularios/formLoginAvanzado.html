@@ -1,99 +1,110 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulario Login y Registro de Usuarios</title>
 
-    <!-- Estilos Google -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway|Ubuntu" rel="stylesheet">
-
-    <!-- Estilos -->
-    <link rel="stylesheet" href="../Recursos/estilosLoginAvanzado.css">
-
-    <title>Formulario Login y Registro de Usuarios</title>
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway|Ubuntu" rel="stylesheet">
+  <!-- Tus estilos -->
+  <link rel="stylesheet" href="../Recursos/estilosLoginAvanzado.css">
+  <style>
+    /* Solo por seguridad visual */
+    .contenido-tab > div { display:none; }
+    .contenido-tab > div.activo { display:block; }
+  </style>
 </head>
 <body>
-    <div class="contenedor-formularios">
-        <!-- Links de los formularios -->
-        <ul class="contenedor-tabs">
-            <li class="tab tab-segunda active"><a href="#iniciar-sesion">Iniciar Sesión</a></li>
-            <li class="tab tab-primera" name="registrar"><a href="#registrarse">Registrarse</a></li>
-        </ul>
+  <div class="contenedor-formularios">
+    <!-- Pestañas -->
+    <ul class="contenedor-tabs" id="tabs">
+      <li class="tab tab-segunda active"><a href="#iniciar-sesion">Iniciar Sesión</a></li>
+      <li class="tab tab-primera"><a href="#registrarse">Registrarse</a></li>
+    </ul>
 
-        <!-- Contenido de los Formularios -->
-        <div class="contenido-tab">
-            <!-- Iniciar Sesión -->
-            <div id="iniciar-sesion">
-                <h1>Iniciar Sesión</h1>
-                <form name="FormaLogin" onsubmit="return false;">
-                    <div class="contenedor-input">
-                        <label>Usuario <span>*</span></label>
-                        <input type="text" name="usuario">
-                    </div>
+    <!-- Contenido -->
+    <div class="contenido-tab">
+      <!-- Iniciar Sesión -->
+      <div id="iniciar-sesion" class="activo">
+        <h1>Iniciar Sesión</h1>
 
-                    <div class="contenedor-input">
-                        <label>Contraseña <span>*</span></label>
-                        <input type="password" name="clave">
-                    </div>
+        <form id="FormLogin" autocomplete="on">
+          <div class="contenedor-input">
+            <label for="loginUsuario">Usuario o Email <span>*</span></label>
+            <input type="text" id="loginUsuario" name="loginUsuario" required placeholder="Tu usuario o correo">
+          </div>
 
-                    <input type="button" class="button button-block" value="Iniciar Sesión">
-                </form>
+          <div class="contenedor-input">
+            <label for="loginClave">Contraseña <span>*</span></label>
+            <input type="password" id="loginClave" name="loginClave" required minlength="6" placeholder="Tu contraseña">
+          </div>
+
+          <p id="loginError" class="error-msg" style="display:none;color:#c0392b;">Usuario/email o contraseña incorrectos.</p>
+
+          <button type="submit" class="button button-block">Iniciar Sesión</button>
+        </form>
+      </div>
+
+      <!-- Registrarse -->
+      <div id="registrarse">
+        <h1>Registrarse</h1>
+
+        <form id="FormRegistro" autocomplete="on">
+          <div class="fila-arriba">
+            <div class="contenedor-input">
+              <label for="regNombre">Nombre <span>*</span></label>
+              <input type="text" id="regNombre" name="nom" required placeholder="Nombre">
             </div>
 
-            <!-- Registrarse -->
-            <div id="registrarse">
-                <h1>Registrarse</h1>
-                <form name="FormRegistro" onsubmit="return false;">
-                    <div class="fila-arriba">
-                        <div class="contenedor-input">
-                            <label>Nombre <span>*</span></label>
-                            <input type="text" name="nom" required>
-                        </div>
-
-                        <div class="contenedor-input">
-                            <label>Apellido <span>*</span></label>
-                            <input type="text" name="ape" required>
-                        </div>
-                    </div>
-
-                    <div class="contenedor-input">
-                        <label>Usuario <span>*</span></label>
-                        <input type="text" name="usu" required>
-                    </div>
-
-                    <div class="contenedor-input">
-                        <label>Email <span>*</span></label>
-                        <input type="email" name="email" required>
-                    </div>
-
-                    <div class="contenedor-input">
-                        <label>Contraseña <span>*</span></label>
-                        <input type="password" name="pas" required>
-                    </div>
-
-                    <div class="contenedor-input">
-                        <label>Teléfono <span>*</span></label>
-                        <input type="tel" name="telefono" required>
-                    </div>
-
-                    <div class="contenedor-input">
-                        <label>Empresa <span>*</span></label>
-                        <input type="text" name="empresa" required>
-                    </div>
-
-                    <div class="contenedor-input">
-                        <label>Fecha <span>*</span></label>
-                        <input type="date" name="fecha" required>
-                    </div>
-
-                    <input type="button" id="btnRegistrarse" class="button button-block" value="Registrarse">
-                </form>
+            <div class="contenedor-input">
+              <label for="regApellido">Apellido <span>*</span></label>
+              <input type="text" id="regApellido" name="ape" required placeholder="Apellido">
             </div>
-        </div>
+          </div>
+
+          <div class="contenedor-input">
+            <label for="regUsuario">Usuario <span>*</span></label>
+            <input type="text" id="regUsuario" name="usu" required minlength="4" placeholder="Usuario">
+          </div>
+
+          <div class="contenedor-input">
+            <label for="regEmail">Email <span>*</span></label>
+            <input type="email" id="regEmail" name="email" required placeholder="correo@dominio.com">
+          </div>
+
+          <div class="contenedor-input">
+            <label for="regPass">Contraseña <span>*</span></label>
+            <input type="password" id="regPass" name="pas" required minlength="6" placeholder="Mínimo 6 caracteres">
+          </div>
+
+          <div class="contenedor-input">
+            <label for="regTel">Teléfono <span>*</span></label>
+            <input type="tel" id="regTel" name="telefono" required placeholder="+593 9 9999 9999" pattern="^\+?\d[\d\s\-]{7,}$">
+          </div>
+
+          <div class="contenedor-input">
+            <label for="regEmp">Empresa <span>*</span></label>
+            <input type="text" id="regEmp" name="empresa" required placeholder="Empresa">
+          </div>
+
+          <div class="contenedor-input">
+            <label for="regFecha">Fecha <span>*</span></label>
+            <input type="date" id="regFecha" name="fecha" required>
+          </div>
+
+          <p id="regError" class="error-msg" style="display:none;color:#c0392b;">Revisa los campos marcados.</p>
+
+          <button type="submit" id="btnRegistrarse" class="button button-block">Registrarse</button>
+        </form>
+      </div>
     </div>
+  </div>
 
-    <!-- Scripts -->
-    <script src="../js/jquery.js"></script>
-    <script src="../js/main.js"></script>
+  <!-- JS -->
+     <script src="../js/jquery.js"></script>
+
+  <script src="../js/main.js"></script>
+
 </body>
 </html>
