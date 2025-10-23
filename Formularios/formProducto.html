@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Parte 2 – Formulario Producto</title>
+</head>
+<body>
+
+  <h2 style="text-align:center;">Parte 2 – Formulario Producto</h2>
+
+  <form name="FormProducto">
+
+    <!-- DATOS BÁSICOS -->
+    <fieldset>
+      <legend><b>Datos Básicos</b></legend>
+
+      <label>Nombre del Producto:</label>
+      <input type="text" name="nombre"><br><br>
+
+      <label>Descripción:</label><br>
+      <textarea name="descripcion" rows="4" cols="50"></textarea><br><br>
+
+      <label>Foto:</label>
+      <input type="file" name="foto"><br><br>
+
+      <input type="checkbox" id="chkConfidencial"> Añadir información confidencial
+    </fieldset>
+
+    <!-- DATOS ECONÓMICOS -->
+    <fieldset style="margin-top:10px;">
+      <legend><b>Datos Económicos</b></legend>
+
+      <label>Precio:</label>
+      <input type="text" name="precio" style="width:80px;"> $
+      <label style="margin-left:10px;">Impuestos:</label>
+      <select name="impuestos">
+        <option value="4">4%</option>
+        <option value="8">8%</option>
+        <option value="12">12%</option>
+      </select>
+      <br><br>
+
+      <label>Promoción:</label><br>
+      <input type="radio" name="promo" value="ninguno" checked> Ninguno<br>
+      <input type="radio" name="promo" value="transporte"> Transporte Gratuito<br>
+      <input type="radio" name="promo" value="descuento"> Descuento 5%
+    </fieldset>
+
+    <!-- BOTONES -->
+    <br>
+    <button type="submit">Guardar Cambios</button>
+    <button type="reset">Borrar los datos introducidos</button>
+
+    <div style="text-align:center; margin-top:20px;">
+      <a href="../index.html" class="Boton">REGRESAR</a>
+    </div>
+
+  </form>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Parte 1 – Formulario Registro</title>
+</head>
+<body>
+
+  <h2 style="text-align:center;">Parte 1 – Formulario de Registro</h2>
+
+  <!-- Tabla para poner los 2 fieldsets lado a lado -->
+  <table border="0" cellpadding="6" cellspacing="10" style="width:100%;">
+    <tr>
+      <td style="vertical-align:top; width:50%;">
+        <form id="formRegistro">
+          <fieldset>
+            <legend><b>DIRECCIÓN DE ENVÍO</b></legend>
+
+            <div>
+              <label for="calle">Calle Principal</label><br>
+              <input type="text" id="calle" name="calle" style="width:95%;">
+            </div>
+
+            <div>
+              <label for="transversal">Transversal</label><br>
+              <input type="text" id="transversal" name="transversal" style="width:95%;">
+            </div>
+
+            <div style="margin:8px 0;">
+              <label>
+                <input type="checkbox" id="chkPropietario"> Entrega al propietario.
+              </label><br>
+              <label>
+                <input type="checkbox" id="chkTercero"> Entrega a un tercero.
+              </label>
+            </div>
+
+            <div>
+              <label for="canton">Cantones:</label>
+              <select id="canton" name="canton">
+                <option>Quito</option>
+                <option>Rumiñahui</option>
+                <option>Mejía</option>
+                <option>Cayambe</option>
+              </select>
+            </div>
+
+            <div style="margin-top:10px;">
+              <button type="submit" id="btnEnviar" disabled>ENVIAR DATOS</button>
+            </div>
+          </fieldset>
+        </form>
+      </td>
+
+      <td style="vertical-align:top; width:50%;">
+        <fieldset id="boxConfidencial" style="display:none;">
+          <legend><b>INFORMACIÓN CONFIDENCIAL</b></legend>
+
+          <div>
+            <label for="cp">Código Postal:</label>
+            <input type="text" id="cp" name="cp" style="width:120px;">
+          </div>
+
+          <div style="margin-top:8px;">
+            <label for="referencia">Referencia de la Dirección:</label><br>
+            <textarea id="referencia" name="referencia" rows="4" cols="45"></textarea>
+          </div>
+
+          <div style="margin-top:10px;">
+            <button type="button">Guardar</button>
+          </div>
+        </fieldset>
+      </td>
+    </tr>
+  </table>
+
+  <div style="text-align:center; margin-top:20px;">
+    <a href="../index.html" class="Boton">REGRESAR</a>
+  </div>
+
+  <!-- Enlace al script externo -->
+  <script src="../js/registro.js"></script>
+
+</body>
+</html>

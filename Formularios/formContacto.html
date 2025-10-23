@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>Contacto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="../Recursos/MisEstilos.css">
+    <script src="../js/contacto.js" defer></script>
+  </head>
+
+  <body>
+    <form name="FormContacto" onsubmit="return validar();">
+      <h2>Contacto</h2>
+
+      <p>Correo Electrónico</p>
+      <input type="text" id="txtEmail" name="txtEmail" placeholder="&#9993; usuario@mail.com" required>
+
+      <p>Fecha de Nacimiento</p>
+      <input type="date" name="txtFecha">
+
+      <p>Teléfono</p>
+      <input type="text" id="txtTelefono" name="txtTelefono" placeholder="&#9742; Teléfono" required>
+
+      <input type="button" id="btnEnviar" value="Enviar" onclick="enviar(this)">
+    </form>
+  </body>
+</html>
