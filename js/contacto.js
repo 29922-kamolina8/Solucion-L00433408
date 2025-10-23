@@ -17,17 +17,17 @@ function validar() {
 }
 
 function enviar(btn) {
-  // valida ANTES de enviar (submit() NO dispara onsubmit)
+  // valida ANTES de enviar 
   if (!validar()) return;
 
   // deshabilitar y cambiar texto
   btn.disabled = true;
   btn.value = "Enviando datos...";
 
-  // aseguramos que vaya a la pantalla de “enviado” con GET (sin 405)
+  
   btn.form.action = "formContactoEnviado.html";
   btn.form.method = "get";
 
-  // enviar el formulario (como pide el enunciado)
+  // enviar el formulario 
   btn.form.submit();
 }

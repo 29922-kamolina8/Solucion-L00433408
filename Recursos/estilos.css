@@ -1,6 +1,6 @@
 body {
   width:1300px;
-  margin: 0 auto;  /* Para que el contenedor este centrado */
+  margin: 0 auto;  
   text-align:center;
 }
 
@@ -151,10 +151,5 @@ h2{
   padding-top: 10px;
 }
 
-/*@media(max-width:780px){
-  div{
-    width: 95%;
-  }
-}*/
 
 

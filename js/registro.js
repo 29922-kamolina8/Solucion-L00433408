@@ -1,10 +1,9 @@
-// Obtener los elementos del DOM
 const chkProp = document.getElementById('chkPropietario');
 const chkTer  = document.getElementById('chkTercero');
 const btnEnv  = document.getElementById('btnEnviar');
 const boxConf = document.getElementById('boxConfidencial');
 
-// Función para actualizar estado de checkboxes y botones
+// actualizar estado de checkboxes y botones
 function actualizar() {
   // Exclusión entre propietario y tercero
   if (this === chkProp && chkProp.checked) chkTer.checked = false;
